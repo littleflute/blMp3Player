@@ -1,8 +1,8 @@
 ﻿{
     "songData": [
         {
-            "albumName": "blcd100-Billboard Top R&B Hits, 1963",
-            "albumCoverMax": "albumCover/max/hcsmlive.jpg",
+            "albumName": "The classical guitar compendium",
+            "albumCoverMax": "https://littleflute.github.io/b124/00151382-wl.jpg",
             "albumSong": [
                 {
                     "musicName": "01 Sor Study No. 6 Technical Exercise",
@@ -10,7 +10,7 @@
                     "musicLink": "https://littleflute.github.io/b124/archive/01%20Sor%20Study%20No.%206%20Exercise.mp3",
                     "lyricsLink": "lyrics/01.lrc",
                     "musicTime": "01:12",
-                    "albumCoverMin": "albumCover/min/hcsmlive.png"
+                    "albumCoverMin": "https://littleflute.github.io/b124/00151382-wl.jpg"
                 },
                 {
                     "musicName": "02 Two Lovers.mp3",
