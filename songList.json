@@ -5,11 +5,11 @@
             "albumCoverMax": "albumCover/max/hcsmlive.jpg",
             "albumSong": [
                 {
-                    "musicName": "01 Baby Workout.mp3",
-                    "musicSinger": "01Test",
-                    "musicLink": "01 Baby Workout.mp3",
-                    "lyricsLink": "lyrics/thh.lrc",
-                    "musicTime": "03:47",
+                    "musicName": "01 Sor Study No. 6 Technical Exercise",
+                    "musicSinger": "Sor",
+                    "musicLink": "https://littleflute.github.io/b124/archive/01%20Sor%20Study%20No.%206%20Exercise.mp3",
+                    "lyricsLink": "lyrics/01.lrc",
+                    "musicTime": "01:12",
                     "albumCoverMin": "albumCover/min/hcsmlive.png"
                 },
                 {
