@@ -34,17 +34,7 @@ else
 	XMLHttpData(url);
 })();
 
-
-
-
-var xddbg = document.getElementById("xddbg");
-
-var s = xddbg.innerHTML;
- s += "xddbg1: ";
- s += QueryString.l + "<br>";
- s += url + "<br>";
- xddbg.innerHTML = s;
-
+ 
 function xdDbgMsg(str)
 {
 	var d = document.getElementById("xddbg");
@@ -53,7 +43,7 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.0.5");
+xdDbgMsg("xddbg: v0.0.6");
 xdDbgMsg(QueryString.l);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
