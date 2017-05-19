@@ -45,6 +45,15 @@ var s = xddbg.innerHTML;
  s += url + "<br>";
  xddbg.innerHTML = s;
 
+function xdDbgMsg(str)
+{
+	var d = document.getElementById("xddbg");
+	var s = xddbg.innerHTML;
+	s += str;
+	s += "<br>";
+	d.innerHTML =s;
+}
+xdDbgMsg("xddbg: v0.0.2")
 
 //---------------------------------------------------【AJAX载入歌曲信息】
 function XMLHttpData(url){
