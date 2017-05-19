@@ -36,16 +36,16 @@ else
 
 
 
- 
-function xdDbg(str);
-{
-	var d = decument.getelementbyId("xddbg");
-	s = d.innerHTML;
-	s += str + "<br>";
-	d.innerHTML = s;
-}
-xdDbg(QueryString.1);
-xdDbg(url);
+
+var xddbg = document.getElementById("xddbg");
+
+var s = xddbg.innerHTML;
+ s += "xddbg1: ";
+ s += QueryString.l + "<br>";
+ s += url + "<br>";
+ xddbg.innerHTML = s;
+
+
 //---------------------------------------------------【AJAX载入歌曲信息】
 function XMLHttpData(url){
     var xmlhttp,song;
@@ -1098,7 +1098,7 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
     loadLrc(lrc);
 
     function loadLrc(url){
-	xdDbg(url);
+
         if(lrc === ""){
             //没有歌词
             lrcBox.innerHTML = "<div class=\"no-lrc\">暂无歌词</div>";
@@ -1112,7 +1112,7 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             if(xmlhttp != null){
-                xmlhttp.onreadystatechange = getXdLyrics;
+                xmlhttp.onreadystatechange = getXMLHttpData;
                 xmlhttp.open("get", url , true);
                 xmlhttp.send(null);
             }else{
@@ -1122,7 +1122,7 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
 
     }
 
-    function getXdLyrics(){
+    function getXMLHttpData(){
         if(xmlhttp.readyState === 4){
             if(xmlhttp.status === 0 || xmlhttp.status === 200){
 
