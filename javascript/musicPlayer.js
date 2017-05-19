@@ -53,7 +53,7 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.0.2")
+xdDbgMsg("xddbg: v0.0.3");
 
 //---------------------------------------------------【AJAX载入歌曲信息】
 function XMLHttpData(url){
