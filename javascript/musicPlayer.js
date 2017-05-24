@@ -43,7 +43,7 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.0.8");
+xdDbgMsg("xddbg: v0.0.9");
 xdDbgMsg(QueryString.l);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
@@ -85,21 +85,21 @@ function XMLHttpData(url){
 
 //---------------------------------------------------【播放器初始化 绑定事件】
 function formatPlayer(song){
-    var mEngine = new MUSICENGINE(song),
-        mPlay = document.getElementById("musicEngine"),
-        mPlayerSwitch = document.getElementById("musicPlayerSwitch"),
-        play = document.getElementById("play"),
-        pause = document.getElementById("pause"),
-        next = document.getElementById("next"),
-        prev = document.getElementById("prev"),
-        nowVolume = document.getElementById("nowVolume"),
-        nowMute = document.getElementById("nowMute"),
-        volume = document.getElementById("volume"),
-        mute = document.getElementById("mute"),
-        volumeSizeBg = document.getElementById("volumeSizeBg"),
-        progressRateBg = document.getElementById("progressRateBg"),
-        lyrics = document.getElementById("lyrics"),
-        albumLists = document.getElementById("albumLists");
+    var mEngine 	= new MUSICENGINE(song),
+        mPlay 		= document.getElementById("musicEngine"),
+        mPlayerSwitch 	= document.getElementById("musicPlayerSwitch"),
+        play 		= document.getElementById("play"),
+        pause 		= document.getElementById("pause"),
+        next 		= document.getElementById("next"),
+        prev 		= document.getElementById("prev"),
+        nowVolume 	= document.getElementById("nowVolume"),
+        nowMute 	= document.getElementById("nowMute"),
+        volume 		= document.getElementById("volume"),
+        mute 		= document.getElementById("mute"),
+        volumeSizeBg 	= document.getElementById("volumeSizeBg"),
+        progressRateBg 	= document.getElementById("progressRateBg"),
+        lyrics 		= document.getElementById("lyrics"),
+        albumLists 	= document.getElementById("albumLists");
 
     //打开关闭
     mPlayerSwitch.onclick = function(){
