@@ -1095,9 +1095,9 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
         singer;
 
     //ajax获取歌词lrc文件
-    loadLrc(lrc);
+    xdAjaxGetLrc(lrc);
 
-    function loadLrc(url){
+    function xdAjaxGetLrc(url){
 
         if(lrc === ""){
             //没有歌词
