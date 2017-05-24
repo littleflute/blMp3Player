@@ -43,7 +43,7 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.0.6");
+xdDbgMsg("xddbg: v0.0.8");
 xdDbgMsg(QueryString.l);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
@@ -1112,7 +1112,7 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             if(xmlhttp != null){
-                xmlhttp.onreadystatechange = getXMLHttpData;
+                xmlhttp.onreadystatechange = xdGetLyrData;
                 xmlhttp.open("get", url , true);
                 xmlhttp.send(null);
             }else{
@@ -1122,10 +1122,9 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
 
     }
 
-    function getXMLHttpData(){
+    function xdGetLyrData(){
         if(xmlhttp.readyState === 4){
             if(xmlhttp.status === 0 || xmlhttp.status === 200){
-
                 //获取歌词内容
                 lrcVal = xmlhttp.responseText.replace(/\[\d\d:\d\d.\d\d]/g,"");
                 lrcArray = lrcVal.split("\n");
