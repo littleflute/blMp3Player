@@ -43,8 +43,8 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.0.9");
-xdDbgMsg(QueryString.l);
+xdDbgMsg("xddbg: v0.1.0");
+xdDbgMsg(url);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
 function XMLHttpData(url){
