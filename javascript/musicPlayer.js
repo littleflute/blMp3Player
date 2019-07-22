@@ -31,7 +31,7 @@ else
 	url = "https://littleflute.github.io/blMp3Player/songList.json";
 }    
 (function(){
-	XMLHttpData(url);
+	ajaxLoad(url);
 })();
 
  
@@ -43,11 +43,11 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.1.0");
+xdDbgMsg("xddbg: v0.1.1");
 xdDbgMsg(url);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
-function XMLHttpData(url){
+function ajaxLoad(url){
     var xmlhttp,song;
 
     loadXMLDoc(url);
@@ -249,7 +249,7 @@ function MUSICENGINE(song){
 }
 
 //---------------------------------------------------【功能：播放&暂停】
-MUSICENGINE.prototype.toPlay = function(toPlay){
+MUSICENGINE.prototype.toPlay = function(mode){
     var play = document.getElementById("play"),
         pause = document.getElementById("pause");
 
@@ -258,13 +258,13 @@ MUSICENGINE.prototype.toPlay = function(toPlay){
         this.playIndex(0,0);
     }
     //如果媒体文件被暂停，则返回true
-    if(toPlay === "play"){
+    if(mode === "play"){
         this.musicPlayer.play();
         this.playbackProgress("play");
         hide(play);
         show(pause);
     }
-    if(toPlay === "pause"){
+    if(mode === "pause"){
         this.musicPlayer.pause();
         this.playbackProgress("pause");
         show(play);
@@ -1063,10 +1063,10 @@ function playerInitialization(){
         musicEngine = document.getElementById("musicEngine");
 
     albumFrontCover.src = "images/album.png";
-    musicName.innerHTML = "FeelPlayer";
+    musicName.innerHTML = "v0.0.5";
     musicName.title = "FeelPlayer";
-    musicSinger.innerHTML = "播放最爱的音乐";
-    musicSinger.title = "播放最爱的音乐";
+    musicSinger.innerHTML = "musicSinger";
+    musicSinger.title = "SingerTitle";
     albumName.innerHTML = "";
     albumName.title = "";
     musicEngine.src = "";
@@ -1175,7 +1175,7 @@ function lrcMove(timeall,currenttime){
     //当前时间 currenttime
     var lrcBox = document.getElementById("lrcBox"),
         domList = lrcBox.getElementsByTagName("p"),
-        timer,
+        timer4Lrc,
         index,
         s,
         m = parseInt(lrcBox.style.marginTop.split("-")[1]) || 0;
@@ -1204,11 +1204,11 @@ function lrcMove(timeall,currenttime){
                 }
 
                 //歌词滚动
-                clearInterval(timer);
-                timer = setInterval(function(){
+                clearInterval(timer4Lrc);
+                timer4Lrc = setInterval(function(){
                     m += 1;
                     if(m >= index * 30){
-                        clearInterval(timer);
+                        clearInterval(timer4Lrc);
                     }else{
                         lrcBox.style.marginTop = "-" + m + "px";
                     }
