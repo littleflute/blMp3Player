@@ -1,4 +1,4 @@
-var _g_ver_blPlx_4_Mp3Player = "v0.0.41";
+var _g_ver_blPlx_4_Mp3Player = "v0.0.44";
 var plxUI = blo0.blMDiv(document.body, "id_mv_blMp3Player_plx" , "blPlx: " + _g_ver_blPlx_4_Mp3Player , 0,0,150,50, blGrey[3]);  
 plxUI.style.position = "fixed"; 
 plxUI.style.width = "30%";
@@ -15,6 +15,11 @@ var _p = bl$("musicEngine");
 var vLrc = blo0.blDiv(plxUI.d1.v1, "id_vLrc", _p.id ,blGrey[0]); 
 var b1 = blo0.blBtn(vLrc, "vLrc.b1","b1",blGrey[1]);
 b1.onclick = function(){
+	if(this.load){
+		_on_off_div(this,bl$("id_lrcBox"));
+		return;
+	}
+	this.load = true;
 	if(_p.lyricsLink){
 
     	var lrcBox = document.getElementById("id_lrcBox");
@@ -101,6 +106,8 @@ b1.onclick = function(){
             }
         }
     }
+
+		_on_off_div(this,bl$("id_lrcBox"));
 }
 
 function xdMoveLyrics(timeall,currenttime, id){
@@ -126,7 +133,9 @@ function xdMoveLyrics(timeall,currenttime, id){
             //当前下标值和上次记录的下标值不同才滚动，一个下标值只滚动一次
             if(s != i){                
                 s = i;//记录下标值
-                bl$("id_lrcBoxMove").innerHTML = i + ":" + domList[i].innerHTML;                
+                var d = bl$("id_lrcBoxMove").innerHTML = i + ":" + domList[i].innerHTML;    
+				var v1 = blo0.blDiv(plxUI.d1.v1, "v1", domList[i+1].innerHTML,blGrey[3]);   
+				v1.innerHTML = domList[i+1].innerHTML;                      
             }
         }
     }
