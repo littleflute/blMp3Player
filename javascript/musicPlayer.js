@@ -1,3 +1,5 @@
+var v_musciPlayer_js = "v0.1.5";
+
 var QueryString = function () {
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
@@ -43,7 +45,7 @@ function xdDbgMsg(str)
 	s += "<br>";
 	d.innerHTML =s;
 }
-xdDbgMsg("xddbg: v0.1.1");
+xdDbgMsg("xddbg: v0.1.2");
 xdDbgMsg(url);
 
 //---------------------------------------------------【AJAX载入歌曲信息】
@@ -431,7 +433,7 @@ MUSICENGINE.prototype.playbackProgress = function(playSwitch){
             //获取歌曲当前播放时间
             currenttime = currentTime();
             //计算歌词滚动
-            lrcMove(timeall,currenttime);
+            lrcMove(timeall,currenttime, "lrcBox");
             //计算歌曲播放时间
             songPlaybackTime(timeall,currenttime);
             //计算进度条宽度并赋值
@@ -960,7 +962,8 @@ MUSICENGINE.prototype.playIndex = function(albumIndex,songIndex){
     progressRateColor.style.width = "0";
 
     //歌曲地址
-    this.musicPlayer.src = song.songData[albumIndex].albumSong[songIndex].musicLink;
+    this.musicPlayer.src        = song.songData[albumIndex].albumSong[songIndex].musicLink;
+    this.musicPlayer.lyricsLink = song.songData[albumIndex].albumSong[songIndex].lyricsLink;
 
     //专辑封面 没有则显示默认封面
     albumFrontCover.src = song.songData[albumIndex].albumSong[songIndex].albumCoverMin || "images/album.png";
@@ -1170,15 +1173,15 @@ MUSICENGINE.prototype.processingLyrics = function(lrc){
 };
 
 //---------------------------------------------------【计算歌词滚动】
-function lrcMove(timeall,currenttime){
+function lrcMove(timeall,currenttime, id){
     //歌曲总时间 timeall
     //当前时间 currenttime
-    var lrcBox = document.getElementById("lrcBox"),
-        domList = lrcBox.getElementsByTagName("p"),
+    var _lrcBox = document.getElementById(id),
+        domList = _lrcBox.getElementsByTagName("p"),
         timer4Lrc,
         index,
         s,
-        m = parseInt(lrcBox.style.marginTop.split("-")[1]) || 0;
+        m = parseInt(_lrcBox.style.marginTop.split("-")[1]) || 0;
 
     for(var i=0;i<domList.length;i++){
         //如果当前时间等于遍历的歌词的时间
@@ -1210,7 +1213,7 @@ function lrcMove(timeall,currenttime){
                     if(m >= index * 30){
                         clearInterval(timer4Lrc);
                     }else{
-                        lrcBox.style.marginTop = "-" + m + "px";
+                        _lrcBox.style.marginTop = "-" + m + "px";
                     }
                 },10);
             }
