@@ -1,4 +1,4 @@
-var _g_ver_blPlx_4_Mp3Player = "xd2: v0.0.53";
+var _g_ver_blPlx_4_Mp3Player = "xd2: v0.0.55";
 var plxUI = blo0.blMDiv(document.body, "id_mv_blMp3Player_plx" , "blPlx: " + _g_ver_blPlx_4_Mp3Player , 0,0,150,50, blGrey[3]);  
 plxUI.style.position = "fixed"; 
 plxUI.style.width = "30%";
@@ -82,28 +82,22 @@ b0.onclick = function(){
 	}
  
 
-function xdMoveLyrics(timeall,currenttime, id){ 
+function xdMoveLyrics(timeall,ct, id){ 
     var _lrcBox = bl$(id),
-        domList = _lrcBox.getElementsByTagName("p"),
-        timer4Lrc, 
-        s,
-        m = parseInt(_lrcBox.style.marginTop.split("-")[1]) || 0;
+        domList = _lrcBox.getElementsByTagName("p"),         
+        s 		= 0,
+        m 		= parseInt(_lrcBox.style.marginTop.split("-")[1]) || 0;
 
-    for(var i=0;i<domList.length;i++){
-        //如果当前时间等于遍历的歌词的时间
-        var dataTimeLine = parseInt(domList[i].attributes["data-timeLine"].nodeValue);
-
-        //等到唱第一句歌词的时候再滚动
-        if(dataTimeLine > 0 && dataTimeLine === parseInt(currenttime)){ 
-            //当前下标值和上次记录的下标值不同才滚动，一个下标值只滚动一次
-            if(s != i){                
-                s = i;//记录下标值
-                var d = bl$("id_lrcBoxMove").innerHTML = i + "::" + dataTimeLine + ":" + domList[i].innerHTML;    
-				var v1 = blo0.blDiv(plxUI.d1.v1, "v1", domList[i+1].innerHTML,blGrey[3]);   
-				v1.innerHTML = domList[i+1].innerHTML;                      
-            }
+	var d = bl$("id_lrcBoxMove");
+    for(var i=0;i<domList.length;i++){ 
+        var tl = parseInt(domList[i].attributes["data-timeLine"].nodeValue);
+        if(ct>tl){
+        	s=i;
         }
     }
+	d.innerHTML =  s +  ":" + domList[s].innerHTML + ":"+ ct;
+	var v1 = blo0.blDiv(plxUI.d1.v1, "v1", "v1",blGrey[3]);   
+	v1.innerHTML = domList[s+1].innerHTML;    
 }
 var b2 = blo0.blBtn(vLrc, "vLrc.b2","start",blGrey[1]);
 b2.onclick = function(){
